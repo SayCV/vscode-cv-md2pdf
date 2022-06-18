@@ -131,7 +131,7 @@
       "type": "object",
       "title": "cv-md2pdf",
       "properties": {
-        "cv-md2pdf.type": {
+        "markdown-pdf.type": {
           "type": "array",
           "default": [
             "pdf"
@@ -141,12 +141,12 @@
           },
           "description": "Output format: pdf, html, png, jpeg. Multiple output formats support"
         },
-        "cv-md2pdf.convertOnSave": {
+        "markdown-pdf.convertOnSave": {
           "type": "boolean",
           "default": false,
           "description": "Enable Auto convert on save. To apply the settings, you need to restart Visual Studio Code"
         },
-        "cv-md2pdf.convertOnSaveExclude": {
+        "markdown-pdf.convertOnSaveExclude": {
           "type": "array",
           "default": [],
           "items": {
@@ -154,40 +154,40 @@
           },
           "description": "Excluded file name of convertOnSave option"
         },
-        "cv-md2pdf.outputDirectory": {
+        "markdown-pdf.outputDirectory": {
           "type": "string",
           "default": "",
           "description": "Output Directory."
         },
-        "cv-md2pdf.outputDirectoryRelativePathFile": {
+        "markdown-pdf.outputDirectoryRelativePathFile": {
           "type": "boolean",
           "default": false,
-          "description": "If cv-md2pdf.outputDirectoryRelativePathFile option is set to true, the relative path set with cv-md2pdf.styles is interpreted as relative from the file"
+          "description": "If markdown-pdf.outputDirectoryRelativePathFile option is set to true, the relative path set with markdown-pdf.styles is interpreted as relative from the file"
         },
-        "cv-md2pdf.styles": {
+        "markdown-pdf.styles": {
           "type": "array",
           "default": [],
           "items": {
             "type": "string"
           },
-          "description": "A list of local paths to the stylesheets to use from the cv-md2pdf. All '\\' need to be written as '\\\\'."
+          "description": "A list of local paths to the stylesheets to use from the markdown-pdf. All '\\' need to be written as '\\\\'."
         },
-        "cv-md2pdf.stylesRelativePathFile": {
+        "markdown-pdf.stylesRelativePathFile": {
           "type": "boolean",
           "default": false,
-          "description": "If cv-md2pdf.stylesRelativePathFile option is set to true, the relative path set with cv-md2pdf.styles is interpreted as relative from the file"
+          "description": "If markdown-pdf.stylesRelativePathFile option is set to true, the relative path set with markdown-pdf.styles is interpreted as relative from the file"
         },
-        "cv-md2pdf.includeDefaultStyles": {
+        "markdown-pdf.includeDefaultStyles": {
           "type": "boolean",
           "default": true,
           "description": "Enable the inclusion of default Markdown styles (VSCode, cv-md2pdf)"
         },
-        "cv-md2pdf.highlight": {
+        "markdown-pdf.highlight": {
           "type": "boolean",
           "default": true,
           "description": "Enable Syntax highlighting"
         },
-        "cv-md2pdf.highlightStyle": {
+        "markdown-pdf.highlightStyle": {
           "type": [
             "string",
             "null"
@@ -289,51 +289,51 @@
           "default": "",
           "markdownDescription": "Set the style file name. [highlight.js demo](https://highlightjs.org/static/demo/) [highlight.js/src/styles](https://github.com/highlightjs/highlight.js/tree/master/src/styles)"
         },
-        "cv-md2pdf.breaks": {
+        "markdown-pdf.breaks": {
           "type": "boolean",
           "default": false,
           "description": "Enable line breaks"
         },
-        "cv-md2pdf.emoji": {
+        "markdown-pdf.emoji": {
           "type": "boolean",
           "default": true,
           "markdownDescription": "Enable emoji. [Emoji cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)"
         },
-        "cv-md2pdf.executablePath": {
+        "markdown-pdf.executablePath": {
           "type": "string",
           "default": "",
           "description": "Path to a Chromium or Chrome executable to run instead of the bundled Chromium."
         },
-        "cv-md2pdf.scale": {
+        "markdown-pdf.scale": {
           "type": "number",
           "default": 1,
           "description": "Scale of the page rendering."
         },
-        "cv-md2pdf.displayHeaderFooter": {
+        "markdown-pdf.displayHeaderFooter": {
           "type": "boolean",
           "default": true,
           "description": "pdf only. Display header and footer.",
           "scope": "resource"
         },
-        "cv-md2pdf.headerTemplate": {
+        "markdown-pdf.headerTemplate": {
           "type": "string",
           "default": "<div style=\"font-size: 9px; margin-left: 1cm;\"> <span class='title'></span></div> <div style=\"font-size: 9px; margin-left: auto; margin-right: 1cm; \"> <span class='date'></span></div>",
           "description": "pdf only. HTML template for the print header.",
           "scope": "resource"
         },
-        "cv-md2pdf.footerTemplate": {
+        "markdown-pdf.footerTemplate": {
           "type": "string",
           "default": "<div style=\"font-size: 9px; margin: 0 auto;\"> <span class='pageNumber'></span> / <span class='totalPages'></span></div>",
           "description": "pdf only. HTML template for the print footer.",
           "scope": "resource"
         },
-        "cv-md2pdf.printBackground": {
+        "markdown-pdf.printBackground": {
           "type": "boolean",
           "default": true,
           "description": "pdf only. Print background graphics.",
           "scope": "resource"
         },
-        "cv-md2pdf.orientation": {
+        "markdown-pdf.orientation": {
           "type": "string",
           "enum": [
             "portrait",
@@ -343,13 +343,13 @@
           "description": "pdf only. Paper orientation. portrait or landscape.",
           "scope": "resource"
         },
-        "cv-md2pdf.pageRanges": {
+        "markdown-pdf.pageRanges": {
           "type": "string",
           "default": "",
           "description": "pdf only. Paper ranges to print, e.g., '1-5, 8, 11-13'.",
           "scope": "resource"
         },
-        "cv-md2pdf.format": {
+        "markdown-pdf.format": {
           "type": "string",
           "enum": [
             "Letter",
@@ -368,48 +368,48 @@
           "description": "pdf only. Paper format [Letter, Legal, Tabloid, Ledger, A0, A1, A2, A3, A4, A5, A6].",
           "scope": "resource"
         },
-        "cv-md2pdf.width": {
+        "markdown-pdf.width": {
           "type": "string",
           "default": "",
-          "description": "pdf only. Paper width, accepts values labeled with units(mm, cm, in, px). If it is set, it overrides the cv-md2pdf.format option.",
+          "description": "pdf only. Paper width, accepts values labeled with units(mm, cm, in, px). If it is set, it overrides the markdown-pdf.format option.",
           "scope": "resource"
         },
-        "cv-md2pdf.height": {
+        "markdown-pdf.height": {
           "type": "string",
           "default": "",
-          "description": "pdf only. Paper height, accepts values labeled with units(mm, cm, in, px). If it is set, it overrides the cv-md2pdf.format option.",
+          "description": "pdf only. Paper height, accepts values labeled with units(mm, cm, in, px). If it is set, it overrides the markdown-pdf.format option.",
           "scope": "resource"
         },
-        "cv-md2pdf.margin.top": {
+        "markdown-pdf.margin.top": {
           "type": "string",
           "default": "1.5cm",
           "description": "Page Option. Border Top. units: mm, cm, in, px",
           "scope": "resource"
         },
-        "cv-md2pdf.margin.bottom": {
+        "markdown-pdf.margin.bottom": {
           "type": "string",
           "default": "1cm",
           "description": "Page Option. Border bottom. units: mm, cm, in, px",
           "scope": "resource"
         },
-        "cv-md2pdf.margin.right": {
+        "markdown-pdf.margin.right": {
           "type": "string",
           "default": "1cm",
           "description": "Page Option. Border right. units: mm, cm, in, px",
           "scope": "resource"
         },
-        "cv-md2pdf.margin.left": {
+        "markdown-pdf.margin.left": {
           "type": "string",
           "default": "1cm",
           "description": "Page Option. Border left. units: mm, cm, in, px",
           "scope": "resource"
         },
-        "cv-md2pdf.quality": {
+        "markdown-pdf.quality": {
           "type": "number",
           "default": 100,
           "description": "jpeg only. The quality of the image, between 0-100. Not applicable to png images."
         },
-        "cv-md2pdf.clip.x": {
+        "markdown-pdf.clip.x": {
           "type": [
             "number",
             "null"
@@ -417,7 +417,7 @@
           "default": "",
           "description": "png and jpeg only. x-coordinate of top-left corner of clip area."
         },
-        "cv-md2pdf.clip.y": {
+        "markdown-pdf.clip.y": {
           "type": [
             "number",
             "null"
@@ -425,7 +425,7 @@
           "default": "",
           "description": "png and jpeg only. y-coordinate of top-left corner of clip area."
         },
-        "cv-md2pdf.clip.width": {
+        "markdown-pdf.clip.width": {
           "type": [
             "number",
             "null"
@@ -433,7 +433,7 @@
           "default": "",
           "description": "png and jpeg only. width of clipping area."
         },
-        "cv-md2pdf.clip.height": {
+        "markdown-pdf.clip.height": {
           "type": [
             "number",
             "null"
@@ -441,37 +441,37 @@
           "default": "",
           "description": "png and jpeg only. height of clipping area."
         },
-        "cv-md2pdf.omitBackground": {
+        "markdown-pdf.omitBackground": {
           "type": "boolean",
           "default": false,
           "description": "png and jpeg only. Hides default white background and allows capturing screenshots with transparency."
         },
-        "cv-md2pdf.plantumlOpenMarker": {
+        "markdown-pdf.plantumlOpenMarker": {
           "type": "string",
           "default": "@startuml",
           "description": "Oppening delimiter used for the plantuml parser."
         },
-        "cv-md2pdf.plantumlCloseMarker": {
+        "markdown-pdf.plantumlCloseMarker": {
           "type": "string",
           "default": "@enduml",
           "description": "Closing delimiter used for the plantuml parser."
         },
-        "cv-md2pdf.plantumlServer": {
+        "markdown-pdf.plantumlServer": {
           "type": "string",
           "default": "http://www.plantuml.com/plantuml",
           "description": "plantuml server"
         },
-        "cv-md2pdf.StatusbarMessageTimeout": {
+        "markdown-pdf.StatusbarMessageTimeout": {
           "type": "number",
           "default": 10000,
           "description": "Statusbar message timeout [milliseconds]"
         },
-        "cv-md2pdf.markdown-it-include.enable": {
+        "markdown-pdf.markdown-it-include.enable": {
           "type": "boolean",
           "default": true,
           "description": "Enable markdown-it-include. "
         },
-        "cv-md2pdf.mermaidServer": {
+        "markdown-pdf.mermaidServer": {
           "type": "string",
           "default": "https://unpkg.com/mermaid/dist/mermaid.min.js",
           "description": "mermaid server."
@@ -508,7 +508,7 @@
     "webpack-cli": "^4.9.2"
   },
   "dependencies": {
-    "cheerio": "^0.20.0",
+    "cheerio": "^0.22.0",
     "d3": "^4.13.0",
     "emoji-images": "^0.1.1",
     "gray-matter": "^4.0.2",

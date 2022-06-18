@@ -380,7 +380,7 @@ function exportPdf(data: any, filename: string, type: string, uri: vscode.Uri | 
   }
   if (!checkPuppeteerBinary()) {
     showErrorMessage('Chromium or Chrome does not exist! \
-      See https://github.com/yzane/vscode-markdown-pdf#install');
+      See https://github.com/yzane/vscode-md2pdf#install');
     return;
   }
 
@@ -390,7 +390,7 @@ function exportPdf(data: any, filename: string, type: string, uri: vscode.Uri | 
 
   return vscode.window.withProgress({
     location: vscode.ProgressLocation.Notification,
-    title: '[Markdown PDF]: Exporting (' + type + ') ...'
+    title: '[md2pdf]: Exporting (' + type + ') ...'
     }, async () => {
       try {
         // export html
@@ -569,14 +569,14 @@ function getOutputDir(filename: string, resource: vscode.Uri | undefined) {
     // Use path if it is absolute
     if (path.isAbsolute(outputDirectory)) {
       if (!isExistsDir(outputDirectory)) {
-        showErrorMessage(`The output directory specified by the markdown-pdf.outputDirectory option does not exist.\
-          Check the markdown-pdf.outputDirectory option. ` + outputDirectory);
+        showErrorMessage(`The output directory specified by the md2pdf.outputDirectory option does not exist.\
+          Check the md2pdf.outputDirectory option. ` + outputDirectory);
         return;
       }
       return path.join(outputDirectory, path.basename(filename));
     }
 
-    // Use a workspace relative path if there is a workspace and markdown-pdf.outputDirectoryRootPath = workspace
+    // Use a workspace relative path if there is a workspace and md2pdf.outputDirectoryRootPath = workspace
     var outputDirectoryRelativePathFile = vscode.workspace.getConfiguration('markdown-pdf')['outputDirectoryRelativePathFile'];
     let root = vscode.workspace.getWorkspaceFolder(resource);
     if (outputDirectoryRelativePathFile === false && root) {
@@ -707,13 +707,13 @@ function readStyles(uri: vscode.Uri) {
       }
     }
 
-    // 4. read the style of the markdown-pdf.
+    // 4. read the style of the md2pdf.
     if (includeDefaultStyles) {
-      filename = path.join(__dirname, 'styles', 'markdown-pdf.css');
+      filename = path.join(__dirname, 'styles', 'md2pdf.css');
       style += makeCss(filename);
     }
 
-    // 5. read the style of the markdown-pdf.styles settings.
+    // 5. read the style of the md2pdf.styles settings.
     styles = vscode.workspace.getConfiguration('markdown-pdf')['styles'] || '';
     if (styles && Array.isArray(styles) && styles.length > 0) {
       for (i = 0; i < styles.length; i++) {
@@ -757,7 +757,7 @@ function fixHref(resource: vscode.Uri, href: string) {
       return vscode.Uri.file(href).toString();
     }
 
-    // Use a workspace relative path if there is a workspace and markdown-pdf.stylesRelativePathFile is false
+    // Use a workspace relative path if there is a workspace and md2pdf.stylesRelativePathFile is false
     var stylesRelativePathFile = vscode.workspace.getConfiguration('markdown-pdf')['stylesRelativePathFile'];
     let root = vscode.workspace.getWorkspaceFolder(resource);
     if (stylesRelativePathFile === false && root) {
@@ -799,7 +799,7 @@ function checkPuppeteerBinary() {
  */
 function installChromium() {
   try {
-    vscode.window.showInformationMessage('[Markdown PDF] Installing Chromium ...');
+    vscode.window.showInformationMessage('[md2pdf] Installing Chromium ...');
     let statusbarmessage = vscode.window.setStatusBarMessage('$(markdown) Installing Chromium ...');
 
     // proxy setting
@@ -827,7 +827,7 @@ function installChromium() {
         INSTALL_CHECK = true;
         statusbarmessage.dispose();
         vscode.window.setStatusBarMessage('$(markdown) Chromium installation succeeded!', StatusbarMessageTimeout);
-        vscode.window.showInformationMessage('[Markdown PDF] Chromium installation succeeded.');
+        vscode.window.showInformationMessage('[md2pdf] Chromium installation succeeded.');
         return Promise.all(cleanupOldVersions);
       }
     }
@@ -837,7 +837,7 @@ function installChromium() {
       vscode.window.setStatusBarMessage('$(markdown) ERROR: Failed to download Chromium!', StatusbarMessageTimeout);
       showErrorMessage('Failed to download Chromium! \
         If you are behind a proxy, set the http.proxy option to settings.json and restart Visual Studio Code. \
-        See https://github.com/yzane/vscode-markdown-pdf#install', error);
+        ', error);
     }
 
     function onProgress(downloadedBytes: number, totalBytes: number) {
