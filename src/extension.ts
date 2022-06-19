@@ -386,7 +386,7 @@ function exportPdf(data: any, filename: string, type: string, uri: vscode.Uri | 
   }
   if (!checkPuppeteerBinary()) {
     showErrorMessage('Chromium or Chrome does not exist! \
-      See https://github.com/yzane/vscode-md2pdf#install');
+      ');
     return;
   }
 
