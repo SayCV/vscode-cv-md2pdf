@@ -230,7 +230,7 @@ function convertMarkdownToHtml(filename: string, type: string, text: string) {
   // emoji
   var emoji_f = setBooleanValue(matterParts.data.emoji, vscode.workspace.getConfiguration('markdown-pdf')['emoji']);
   if (emoji_f) {
-    var emojies_defs = require(path.join(__dirname, 'data', 'emoji.json'));
+    var emojies_defs = require(path.join(__dirname, '..', 'data', 'emoji.json'));
 	let options;
     try {
 		let options = {
@@ -243,7 +243,7 @@ function convertMarkdownToHtml(filename: string, type: string, text: string) {
     md.use(require('markdown-it-emoji'), options);
     md.renderer.rules.emoji = function (token: { [x: string]: { markup: any; }; }, idx: string | number) {
       var emoji = token[idx].markup;
-      var emojipath = path.join(__dirname, 'node_modules', 'emoji-images', 'pngs', emoji + '.png');
+      var emojipath = path.join(__dirname, '..', 'node_modules', 'emoji-images', 'pngs', emoji + '.png');
       var emojidata = Buffer.from(readFile(emojipath, '')).toString('base64');
       if (emojidata) {
         return '<img class="emoji" alt="' + emoji + '" src="data:image/png;base64,' + emojidata + '" />';
@@ -336,7 +336,7 @@ function makeHtml(data: any, uri: vscode.Uri) {
     var title = path.basename(uri.fsPath);
 
     // read template
-    var filename = path.join(__dirname, 'template', 'template.html');
+    var filename = path.join(__dirname, '..',  'template', 'template.html');
     var template = readFile(filename);
 
     // read mermaid javascripts
@@ -678,7 +678,7 @@ function readStyles(uri: vscode.Uri) {
 
     // 1. read the style of the vscode.
     if (includeDefaultStyles) {
-      filename = path.join(__dirname, 'styles', 'markdown.css');
+      filename = path.join(__dirname, '..',  'styles', 'markdown.css');
       style += makeCss(filename);
     }
 
@@ -699,17 +699,17 @@ function readStyles(uri: vscode.Uri) {
     if (ishighlight) {
       if (highlightStyle) {
         var css = vscode.workspace.getConfiguration('markdown-pdf')['highlightStyle'] || 'github.css';
-        filename = path.join(__dirname, 'node_modules', 'highlight.js', 'styles', css);
+        filename = path.join(__dirname, '..',  'node_modules', 'highlight.js', 'styles', css);
         style += makeCss(filename);
       } else {
-        filename = path.join(__dirname, 'styles', 'tomorrow.css');
+        filename = path.join(__dirname, '..',  'styles', 'tomorrow.css');
         style += makeCss(filename);
       }
     }
 
     // 4. read the style of the md2pdf.
     if (includeDefaultStyles) {
-      filename = path.join(__dirname, 'styles', 'md2pdf.css');
+      filename = path.join(__dirname, '..',  'styles', 'md2pdf.css');
       style += makeCss(filename);
     }
 
@@ -805,10 +805,13 @@ function installChromium() {
     // proxy setting
     setProxy();
 
+    let localMirror = vscode.workspace.getConfiguration('markdown-pdf')['localMirror'];
+    if (localMirror) {process.env.PUPPETEER_DOWNLOAD_HOST='https://npm.taobao.org/mirrors';}
+
     let StatusbarMessageTimeout = vscode.workspace.getConfiguration('markdown-pdf')['StatusbarMessageTimeout'];
     const puppeteer = require('puppeteer-core');
     const browserFetcher = puppeteer.createBrowserFetcher();
-    const revision: string = require(path.join(__dirname, 'node_modules', 'puppeteer-core', 'package.json')).puppeteer.chromium_revision;
+    const revision: string = require(path.join(__dirname, '..',  'node_modules', 'puppeteer-core', 'package.json')).puppeteer.chromium_revision;
     const revisionInfo = browserFetcher.revisionInfo(revision);
 
     // download Chromium

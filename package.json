@@ -25,7 +25,6 @@
   },
   "activationEvents": [
     "onLanguage:markdown",
-    "onCommand:cv-md2pdf.helloWorld",
     "onCommand:cv-md2pdf.settings",
     "onCommand:cv-md2pdf.pdf",
     "onCommand:cv-md2pdf.html",
@@ -37,8 +36,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "cv-md2pdf.helloWorld",
-        "title": "Hello World",
+        "command": "cv-md2pdf.settings",
+        "title": "md2pdf: to settings",
         "group": "cv-md2pdf"
       },
       {
@@ -140,6 +139,11 @@
             "type": "string"
           },
           "description": "Output format: pdf, html, png, jpeg. Multiple output formats support"
+        },
+        "markdown-pdf.localMirror": {
+          "type": "boolean",
+          "default": true,
+          "description": "Fast Download requirements"
         },
         "markdown-pdf.convertOnSave": {
           "type": "boolean",
@@ -482,6 +486,7 @@
   "scripts": {
     "vscode:prepublish": "npm run package",
     "compile": "webpack",
+		"clean": "rimraf dist",
     "watch": "webpack --watch",
     "package": "webpack --mode production --devtool hidden-source-map",
     "compile-cli": "tsc -p . --outDir out",
