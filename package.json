@@ -18,7 +18,7 @@
     "url": "https://github.com/SayCV/vscode-cv-md2pdf"
   },
   "keywords": [
-    "markdown pdf"
+    "markdown"
   ],
   "engines": {
     "vscode": "^1.68.0"
@@ -32,7 +32,7 @@
     "onCommand:cv-md2pdf.jpeg",
     "onCommand:cv-md2pdf.all"
   ],
-  "main": "./dist/extension.js",
+  "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
@@ -484,11 +484,11 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run package",
-    "compile": "webpack",
-		"clean": "rimraf dist",
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p . --outDir out",
     "watch": "webpack --watch",
     "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-webpack": "webpack",
     "compile-cli": "tsc -p . --outDir out",
     "compile-tests": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
