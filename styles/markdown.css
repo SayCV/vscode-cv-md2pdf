@@ -132,10 +132,17 @@ h1, h2, h3 {
 
 table {
 	border-collapse: collapse;
+	border-left: 1px solid;
+	border-top: 1px solid;
+	border-right: 1px solid;
+	border-bottom: 1px solid;
 }
 
 table > thead > tr > th {
 	text-align: left;
+	border-left: 1px solid;
+	border-top: 1px solid;
+	border-right: 1px solid;
 	border-bottom: 1px solid;
 }
 
@@ -144,10 +151,17 @@ table > thead > tr > td,
 table > tbody > tr > th,
 table > tbody > tr > td {
 	padding: 5px 10px;
+	border-left: 1px solid;
+	border-top: 1px solid;
+	border-right: 1px solid;
+	border-bottom: 1px solid;
 }
 
 table > tbody > tr + tr > td {
+	border-left: 1px solid;
 	border-top: 1px solid;
+	border-right: 1px solid;
+	border-bottom: 1px solid;
 }
 
 blockquote {
@@ -221,4 +235,36 @@ pre code {
 .vscode-dark hr,
 .vscode-dark table > tbody > tr + tr > td {
 	border-color: rgba(255, 255, 255, 0.18);
+}
+
+/*
+ * GFM footnotes
+ */
+
+[class="footnotes"] {
+  margin-top: 2em;
+  border-top: 1px var(--line) solid;
+}
+
+[class="footnotes"] li {
+  font-size: 0.9rem;
+  list-style-position: outside;
+}
+
+/*
+ * Mermaid diagrams
+ */
+
+[class="mermaid"] svg {
+  background: var(--background);
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/*
+ * KaTeX Math
+ */
+[class="math-display"] {
+  color: var(--black);
 }
