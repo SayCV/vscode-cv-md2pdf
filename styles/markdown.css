@@ -124,10 +124,19 @@ h1 {
 	line-height: 1.2;
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
+	text-transform: uppercase;
+	text-align: center;
 }
 
-h1, h2, h3 {
-	font-weight: normal;
+h2, h3, h4, h5, h6 {
+	margin: 20px 0 10px;
+	padding: 0;
+	font-weight: bold;
+	-webkit-font-smoothing: antialiased;
+	/* http://t.zoukankan.com/zy-plan-p-5995848.html
+	 * STKaiti STZhongsong STFangsong
+	 */
+	font-family: 'STKaiti', 'SimSum', sans-serif;
 }
 
 table {
