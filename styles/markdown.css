@@ -122,7 +122,7 @@ hr {
 h1 {
 	padding-bottom: 0.3em;
 	line-height: 1.2;
-	border-bottom-width: 1px;
+	border-bottom-width: 0px;
 	border-bottom-style: solid;
 	text-transform: uppercase;
 	text-align: center;
