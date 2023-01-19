@@ -208,6 +208,13 @@ pre code {
 	tab-size: 4;
 }
 
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: rgb(33, 160, 237); /* Change the old color so it seems less like an error */
+	font-size: inherit;
+	font-weight: bold;
+}
+
 /** Theming */
 
 .vscode-light pre {
